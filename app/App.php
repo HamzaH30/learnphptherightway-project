@@ -48,8 +48,14 @@ function getTransactions(string $fileName): array
 
   $transactions = [];
 
-  while (!feof($file)) {
-    $transactions[] = fgetcsv($file);
+  // method 1 : this is a bit bad because it might include 'false' values in the $transactions arry if fgetcsv fails or reads past the end of the file. feof() is one step behind fgetcsv. fgetcsv reads past the line it's on.
+  // while (!feof($file)) { 
+  //   $transactions[] = fgetcsv($file);
+  // }
+
+  // method 2
+  while (($row = fgetcsv($file)) !== false) {
+    $transactions[] = $row;
   }
 
   return $transactions;

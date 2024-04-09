@@ -11,10 +11,14 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 /* YOUR CODE (Instructions in README.md) */
 require APP_PATH . "App.php";
 
+// Getting all the files in the transactions folder
 $files = getTransactionFiles(FILES_PATH);
-//var_dump($files);
-//getTransactionData($files[0]);
-$transactions = getTransactions($files[0]);
+
+// Accumulating all the transactions
+$transactions = [];
+foreach ($files as $file) {
+  $transactions = array_merge($transactions, getTransactions($file)); // merge the current transactions with the transactions from the new csv file
+}
 
 echo "<pre>";
 print_r($transactions);
