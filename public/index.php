@@ -9,7 +9,7 @@ define('FILES_PATH', $root . 'transaction_files' . DIRECTORY_SEPARATOR);
 define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 /* YOUR CODE (Instructions in README.md) */
-require APP_PATH . "App.php";
+require APP_PATH . 'App.php';
 
 // Getting all the files in the transactions folder
 $files = getTransactionFiles(FILES_PATH);
@@ -23,7 +23,8 @@ foreach ($files as $file) {
 $totals = calculateTotals($transactions);
 
 // the $transactions variable is passed onto here
-require VIEWS_PATH . "transactions.php";
+require APP_PATH . 'helpers.php';
+require VIEWS_PATH . 'transactions.php';
 
 // echo "<pre>";
 // print_r($transactions);

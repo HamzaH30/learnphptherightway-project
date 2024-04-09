@@ -54,10 +54,10 @@
                 <!-- /* The ALTERNATIVE SYNTAX (also using Short Echo Tag -> just a php tag with an echo inside it): */ -->
                 <?php foreach ($transactions as $transaction) : ?>
                     <tr>
-                        <td><?= $transaction['date'] ?></td>
+                        <td><?= formatDate($transaction['date']) ?></td>
                         <td><?= $transaction['check_number'] ?></td>
                         <td><?= $transaction['description'] ?></td>
-                        <td><?= $transaction['amount'] ?></td>
+                        <td><?= formatDollarAmount($transaction['amount']) ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -67,21 +67,21 @@
                 <th colspan="3">Total Income:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= $totals["total_income"] ?>
+                    <?= formatDollarAmount($totals["total_income"]) ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Total Expense:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= $totals["total_expense"] ?>
+                    <?= formatDollarAmount($totals["total_expense"]) ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Net Total:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= $totals["net_total"] ?>
+                    <?= formatDollarAmount($totals["net_total"]) ?>
                 </td>
             </tr>
         </tfoot>
