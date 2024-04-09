@@ -81,3 +81,18 @@ function extractTransactionInfo(array $transactionRow): array
     'amount' => $amount
   ];
 }
+
+function calculateTotals(array $transactions): array
+{
+  $totals = ["total_income" => 0, "total_expense" => 0, "net_total" => 0];
+
+  foreach ($transactions as $transaction) {
+    $totals["net_total"] += $transaction["amount"];
+
+    $transaction["amount"] > 0
+      ? $totals["total_income"] += $transaction["amount"]
+      : $totals["total_expense"] += $transaction["amount"];
+  }
+
+  return $totals;
+}
