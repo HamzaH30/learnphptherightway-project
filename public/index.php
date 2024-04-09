@@ -20,6 +20,8 @@ foreach ($files as $file) {
   $transactions = array_merge($transactions, getTransactions($file)); // merge the current transactions with the transactions from the new csv file
 }
 
+$totals = calculateTotals($transactions);
+
 // the $transactions variable is passed onto here
 require VIEWS_PATH . "transactions.php";
 

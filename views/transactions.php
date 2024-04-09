@@ -67,21 +67,21 @@
                 <th colspan="3">Total Income:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= calculateTotals($transactions)["total_income"] ?>
+                    <?= $totals["total_income"] ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Total Expense:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= calculateTotals($transactions)["total_expense"] ?>
+                    <?= $totals["total_expense"] ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Net Total:</th>
                 <td>
                     <!-- YOUR CODE -->
-                    <?= calculateTotals($transactions)["net_total"] ?>
+                    <?= $totals["net_total"] ?>
                 </td>
             </tr>
         </tfoot>
