@@ -65,15 +65,46 @@
         <tfoot>
             <tr>
                 <th colspan="3">Total Income:</th>
-                <td><!-- YOUR CODE --></td>
+                <td>
+                    <!-- YOUR CODE -->
+                    <?php
+                    $sum = 0;
+                    foreach ($transactions as $transaction) {
+                        if ($transaction["amount"] > 0) {
+                            $sum += $transaction["amount"];
+                        }
+                    }
+                    echo $sum;
+                    ?>
+                </td>
             </tr>
             <tr>
                 <th colspan="3">Total Expense:</th>
-                <td><!-- YOUR CODE --></td>
+                <td>
+                    <!-- YOUR CODE -->
+                    <?php
+                    $sum = 0;
+                    foreach ($transactions as $transaction) {
+                        if ($transaction["amount"] < 0) {
+                            $sum += $transaction["amount"];
+                        }
+                    }
+                    echo $sum;
+                    ?>
+                </td>
             </tr>
             <tr>
                 <th colspan="3">Net Total:</th>
-                <td><!-- YOUR CODE --></td>
+                <td>
+                    <!-- YOUR CODE -->
+                    <?php
+                    $sum = 0;
+                    foreach ($transactions as $transaction) {
+                        $sum += $transaction["amount"];
+                    }
+                    echo $sum;
+                    ?>
+                </td>
             </tr>
         </tfoot>
     </table>
