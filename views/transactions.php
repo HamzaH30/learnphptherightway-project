@@ -54,10 +54,10 @@
                 <!-- /* The ALTERNATIVE SYNTAX (also using Short Echo Tag -> just a php tag with an echo inside it): */ -->
                 <?php foreach ($transactions as $transaction) : ?>
                     <tr>
-                        <td><?= $transaction[0] ?></td>
-                        <td><?= $transaction[1] ?></td>
-                        <td><?= $transaction[2] ?></td>
-                        <td><?= $transaction[3] ?></td>
+                        <td><?= $transaction['date'] ?></td>
+                        <td><?= $transaction['check_number'] ?></td>
+                        <td><?= $transaction['description'] ?></td>
+                        <td><?= $transaction['amount'] ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>

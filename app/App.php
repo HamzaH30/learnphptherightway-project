@@ -59,9 +59,25 @@ function getTransactions(string $fileName): array
 
   // method 2
   while (($row = fgetcsv($file)) !== false) {
-    $transactions[] = $row;
+    $transactions[] = extractTransactionInfo($row);
   }
 
   fclose($file);
   return $transactions;
+}
+
+function extractTransactionInfo(array $transactionRow): array
+{
+  // using array destructuring/decoupling
+  [$date, $checkNumber, $description, $amount] = $transactionRow;
+
+  // trying to just extract the number in the amount (could also use regex)
+  $amount = (float) str_replace(["$", ","], '', $amount);
+
+  return [
+    'date' => $date,
+    'check_number' => $checkNumber,
+    'description' => $description,
+    'amount' => $amount
+  ];
 }
