@@ -9,5 +9,13 @@ define('FILES_PATH', $root . 'transaction_files' . DIRECTORY_SEPARATOR);
 define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 /* YOUR CODE (Instructions in README.md) */
-include "../views/transactions.php";
-include "../app/App.php";
+require APP_PATH . "App.php";
+
+$files = getTransactionFiles(FILES_PATH);
+//var_dump($files);
+//getTransactionData($files[0]);
+$transactions = getTransactions($files[0]);
+
+echo "<pre>";
+print_r($transactions);
+echo "<pre>";
