@@ -10,3 +10,4 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 /* YOUR CODE (Instructions in README.md) */
 include "../views/transactions.php";
+include "../app/App.php";
