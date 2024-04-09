@@ -20,6 +20,9 @@ foreach ($files as $file) {
   $transactions = array_merge($transactions, getTransactions($file)); // merge the current transactions with the transactions from the new csv file
 }
 
-echo "<pre>";
-print_r($transactions);
-echo "<pre>";
+// the $transactions variable is passed onto here
+require VIEWS_PATH . "transactions.php";
+
+// echo "<pre>";
+// print_r($transactions);
+// echo "<pre>";

@@ -19,24 +19,25 @@ function getTransactionFiles(string $dirPath): array
   return $files;
 }
 
-function getTransactionData(string $fileName)
-{
-  $file = fopen(FILES_PATH . $fileName, "r");
-  if ($file !== false) {
-    $lineCount = 0;
-    while (!feof($file)) {
-      $lineCount++;
+// Less better way:
+// function getTransactionData(string $fileName)
+// {
+//   $file = fopen(FILES_PATH . $fileName, "r");
+//   if ($file !== false) {
+//     $lineCount = 0;
+//     while (!feof($file)) {
+//       $lineCount++;
 
-      if ($lineCount > 1) {
-        print_r(explode(",", fgets($file)));
-      } else {
-        fgets($file); // this is just to get past the header row
-      }
-    }
-  }
+//       if ($lineCount > 1) {
+//         print_r(explode(",", fgets($file)));
+//       } else {
+//         fgets($file); // this is just to get past the header row
+//       }
+//     }
+//   }
 
-  fclose($file);
-}
+//   fclose($file);
+// }
 
 function getTransactions(string $fileName): array
 {
@@ -45,6 +46,9 @@ function getTransactions(string $fileName): array
   }
 
   $file = fopen($fileName, "r");
+
+  // Make the file pointer move past the first line (the header row)
+  fgetcsv($file);
 
   $transactions = [];
 
@@ -58,5 +62,6 @@ function getTransactions(string $fileName): array
     $transactions[] = $row;
   }
 
+  fclose($file);
   return $transactions;
 }
